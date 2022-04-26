@@ -1,0 +1,273 @@
+/* resets */
+*,
+*::before,
+*::after{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+img,
+image,
+picture{
+    max-width: 100%;
+    display: block;
+}
+
+a{
+    text-decoration: none;
+}
+/* custom properties */
+:root{
+    /* Primary  color*/
+    --clr-gradient: hsl(6, 100%, 80%);
+    --clr-gradient2: hsl(335, 100%, 65%);   
+
+    /* Neutral colors */
+    --clr-Pale-Blue: hsl(243, 100%, 93%);   
+    --clr-Grayish-Blue: hsl(229, 7%, 55%);  
+    --clr-Dark-Blue: hsl(228, 56%, 26%);    
+    --clr-Very-Dark-Blue: hsl(229, 57%, 11%);   
+
+}
+
+body{
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.875rem;
+    background: var(--clr-Very-Dark-Blue) no-repeat;
+    background-size: cover;
+    color: var(--clr-Pale-Blue);
+
+}
+
+.flow * + *{
+    margin-top: 1em;
+}
+/* utilitie */
+.flex{
+    display: flex;
+}
+/* .margin. */
+.mt-0{
+    margin-top: 0;
+}
+
+.mt-1{
+    margin-top: .5em;
+}
+
+.mt-2{
+    margin-top: 2em;
+}
+/* individual element styling */
+.container{
+    max-width: 50rem;
+    margin: 13rem auto 0 auto;
+    padding-inline: 2em;
+    position: relative;
+   
+}
+
+.container>div{
+    background-color: var(--clr-Dark-Blue);
+    padding: 1em;
+}
+.container>div:first-child{
+    border-top-right-radius: 80px;
+    width: 37%;
+    padding-bottom: 3em;
+}
+.container>div:last-child{
+    margin-left: auto;
+    width: 60%;
+    border-radius: 10px;
+    margin-top: 3em;
+}
+
+/* left content */
+.container>.left-content>div{
+    width: fit-content;
+    margin: 2em auto 0 2em;    
+}
+
+.container>.left-content>.logo{
+    width: 8em;
+}
+.container>.left-content>.cloud-icons>div{
+    margin-top: 0;
+    background-color: var(--clr-Very-Dark-Blue);
+    border-radius: 5px;
+   
+    margin-right: 1em;
+    width: 3em;
+    height: 3em;
+
+    justify-content: center;
+}
+.container>.left-content>.cloud-icons>div>img{
+    width: 20px;
+    align-self: center;
+    
+}
+
+/* start of right-content */
+
+.container>.right-content>.measure-bar-container{
+    height: 18px;
+    background-color: var(--clr-Very-Dark-Blue);
+    border-radius: 9px;
+    display: grid;
+    grid-template-columns: 70%;
+    align-items: center;
+    padding-left: .15em;
+}
+.container>.right-content>.measure-bar-container>.measure-bar{
+    height: 14px;
+    background-image: linear-gradient(to right, var(--clr-gradient), var(--clr-gradient2));
+    border-radius: 7px;
+    border: 1px solid var(--clr-Very-Dark-Blue);
+    padding-right: .15em;
+    align-items: center;
+
+    /* adding some animation */
+    animation: meter 500ms linear;
+
+}
+.container>.right-content>.measure-bar-container>.measure-bar>.white-nob{
+    width: 10px;
+    height: 10px;
+    background-color: var(--clr-Pale-Blue);
+    border-radius: 50%;
+    margin-left: auto;
+}
+.container>.right-content>.range,
+.gb-used{
+    font-weight: bold;
+    font-size: 12px;
+}
+.container>.right-content>.range>div:last-child{
+    margin-left: auto;
+}
+
+/* storage left */
+
+.right-content>.storage-left{
+    
+    background-color: #fff;
+    color: var(--clr-Grayish-Blue);
+    padding: 1em;
+    border-radius: 10px 10px 0 10px;
+    font-weight: 700;
+    border: 1px solid var(--clr-Very-Dark-Blue);
+
+    position: absolute;
+    
+
+    align-items: center;
+
+    opacity: 0;
+    
+    /* animation to retain the property of the last keyframe */
+    animation: show 5s ease-in-out 2s forwards;
+}
+
+.right-content>.storage-left>#storage{
+   color: var(--clr-Very-Dark-Blue);
+   font-size: 2rem;
+   margin-right: 10px;
+}
+
+.right-content>.storage-total{
+   font-size: 12px;
+}
+
+/* selects from the second div down inside this .right-content class and make them a width of 95%  */
+.right-content > div:nth-of-type(n + 2){
+    width: 90%;
+    margin-inline: auto;
+}
+
+/* footer */
+footer>.attribution { 
+    font-size: 11px; 
+    text-align: center;
+}
+footer>.attribution a { 
+    color: hsl(228, 45%, 44%); 
+}
+
+/* Adding animation keyframes to the measure bar */
+
+@keyframes meter{
+    from {width: 4%;}
+    to {width: 100%}
+}
+@keyframes show{
+    from {opacity: 0}
+    to {opacity: 1}
+}
+
+@media (min-width: 651px){
+
+    body{
+        background-image:  url(images/bg-desktop.png);
+        background-position: top 300px  right 0;
+    }
+
+    .right-content>.storage-left::before{
+        content: '';
+        background-color: #fff;
+        width: 2em;
+        height: 2em;
+        border-right: 1px solid white;
+        
+        position: absolute;
+        right: 0;
+        bottom: -42%;
+
+        clip-path: polygon(0 0, 100% 0, 100% 100%);
+    }
+
+    .right-content>.storage-left{
+        top: 0;
+        right: 8%;
+    }
+
+}
+
+
+@media (max-width: 650px){
+    body{
+        background-image: url(images/bg-mobile.png);
+    }
+    .container{
+        display: block;
+    }
+
+    .container>div{
+        margin-inline: auto;
+    }
+
+    .container>div:first-child,
+    .container>div:last-child{
+        width: 80%;
+    }
+
+    .container>div:last-child{
+        padding-bottom: 3em;
+    }
+
+    .right-content>.storage-left{
+        border-bottom-right-radius: 10px;
+        padding-inline: 2.5em;
+        bottom: -10%;
+        right: 30%;
+    }
+    .right-content>.storage-left>#storage{
+       font-size: 2.5rem;
+    }
+    
+    .mt-4{
+       margin-top: 3em;
+    }
+}
