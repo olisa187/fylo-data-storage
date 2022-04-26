@@ -33,7 +33,7 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [GitHub](https//www.github.com/)
+- Solution URL: [GitHub](https://github.com/olisa187/fylo-data-storage)
 - Live Site URL: [Add live site URL here](https://your-live-site-url.com)
 
 ## My process
