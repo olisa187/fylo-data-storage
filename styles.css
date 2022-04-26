@@ -34,8 +34,8 @@ a{
 body{
     font-family: 'Raleway', sans-serif;
     font-size: 0.875rem;
-    background: var(--clr-Very-Dark-Blue) no-repeat;
-    background-size: cover;
+    background: var(--clr-Very-Dark-Blue) no-repeat fixed;
+    background-size: contain;
     color: var(--clr-Pale-Blue);
 
 }
@@ -211,7 +211,7 @@ footer>.attribution a {
 
     body{
         background-image:  url(images/bg-desktop.png);
-        background-position: top 300px  right 0;
+        background-position: center bottom;
     }
 
     .right-content>.storage-left::before{
